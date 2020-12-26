@@ -1,0 +1,336 @@
+body,html{width:100%;
+	height:100%}
+	
+h1,h2,h3,h4,h5,h6{font-weight:300;
+	line-height:1.1;
+	font-family:"Source Sans Pro","Trebuchet MS",sans-serif}
+
+
+/*fix mathjax/pygments conflict*/
+.MathJax *{color:inherit}
+
+#pr-list{
+    padding-left: 1em;
+}
+
+#pr-list li:not(:last-child) {
+    margin-bottom: 0.1em;
+}
+
+
+/* Headings */
+h1{font-size:2.4em}
+
+h2{font-size:2em}
+
+h3{font-size:1.6em}
+
+h4{font-size:1.36em}
+
+h5{font-size:1.2em}
+
+h6{font-size:1.1em}
+
+/* Body specs */
+body{margin:0;
+	padding:0;
+	background-color:#242121;
+	color:#ffffff;
+	font-family:"Source Sans Pro","Trebuchet MS",sans-serif;
+	font-size:1.05em;
+	line-height:1.2em}
+
+/* Sections color  */
+a{color:#fff;
+	text-decoration:none}
+
+a:hover{color:rgb(180, 172, 176)}
+
+hr{color:#fff;
+	background-color:#eee;
+	height:1px;
+	border:none;
+	margin-top:40px;
+	margin-bottom:40px}
+	
+img{max-width:100%}
+
+/* Specs Sidebar */
+aside{background-color:#242121;
+	text-align:center}
+	
+aside,aside a{color:#fff}
+
+aside a:hover{color:#C0C0C0}
+
+aside div{padding:20px;
+	margin:0}
+	
+aside div img{border-radius:50%;
+	max-width:140px}
+	
+aside div h1{margin:15px 0 5px}
+
+aside div p{margin:0 0 15px;
+	font-size:.92em}
+	
+aside nav ul li{display:inline;
+	line-height:1.6em;
+	font-size:1.28em;
+	font-family:"Source Sans Pro","Trebuchet MS",sans-serif;
+	text-transform:capitalize}
+	
+/* Navbar Category specs */
+main nav{text-align:center;
+	text-transform:capitalize;
+	font-size:1em;
+	padding:14px;
+	padding-top:14px;
+	border-bottom:1px solid  #242121
+}
+main .translations a,main nav a{padding:0 4px;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee}
+	
+main .translations :first-child,main nav :first-child{border-left:none}
+
+main .translations :last-child,main nav :last-child{border-right:none}
+
+main .neighbors{margin:4% 0;
+	height:20px}
+	
+main .pagination{margin:4% 8%;
+	height:20px}
+	
+
+main article{margin:0 8% 2%;
+    max-width: 50em;
+    line-height: 1.5em
+}
+
+::selection {
+    background: #474746;
+}
+
+main article header h1,main article header h2{margin-bottom:0}
+
+main article header p{color:#999;
+	font-size:.86em}
+	
+main article header .translations{float:right}
+
+main article header .translations .active{font-weight:600}
+
+main article code,main article kbd,main article pre,main article samp{font-family:"Source Code Pro",Consolas,monospace}
+
+main article pre::selection{color: rgba(46, 44, 44, 0.726);
+}
+	
+main article blockquote{
+    /* background-color: #2e2c2cb9; */
+	padding:10px 10px;
+	margin-left: 0px;
+    margin-right: 0px;
+	font-weight:300;
+	font-size:1.1em;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+	/* border-left:8px solid #2c2c2c */
+}
+
+	
+main article pre{
+    padding: 18px;
+	font-size:.9em;
+	background-color:#2c2c2c;
+	color:#F8F8F2;
+	overflow-x:auto;
+    border:0;
+    border-radius: 5px;
+    line-height: 133%;
+}
+
+.highlight{
+    background-color: #1a1818;
+    /* border-radius: 5px; */
+    padding: 0;
+    line-height: 133%;
+}
+
+main article samp{white-space:pre;
+	display:block;
+	overflow-x:auto}
+
+main article div.math{
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+main article img{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}	
+
+main footer{padding-top:4px;
+	border-top:1px solid #242121
+}
+	
+main footer p{margin:2px;
+	text-align:center;
+	padding:0 40px;
+	color:#999;
+	font-size:11px}
+	
+.tag-cloud a{background-color:#3aa500; 
+	padding:.2em .6em;
+	font-size:.74em;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:.25em}
+	
+.tag-cloud a:hover{background-color:#4cdb00}
+
+main article div table#tags{
+	margin-top:1em;
+	width:100%;
+}
+
+main article div table#tags td{
+	padding:3px;
+}
+
+main article td.tag{
+  text-align:right;
+  border:0;
+  min-width:8em;
+  vertical-align: middle;
+  font-size: 1.1em;
+}
+
+main article td.tagbarcol{
+  width:100%;
+  padding: 0;
+  vertical-align: middle;
+  border:0;
+}
+
+main article div.tagbar{
+    background-color:#55272f;
+    color:#fff;
+    height: 24px;
+    line-height: 26px;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 3px;
+}
+
+a.btn{background-color:#581925;
+	padding:.6em;
+	font-size:.8em;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:.25em;
+	font-family:source sans pro,trebuchet ms,sans-serif;
+}
+	
+a.btn:hover{background-color:#55272f}
+
+.center,.text-center{text-align:center}
+
+.img-center{margin-left:auto;
+	margin-right:auto;
+	display:block}
+	
+.float-left{float:left}
+
+.float-right{float:right}
+
+div.related-posts{margin:15px 0;
+	padding-bottom:20px;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee}
+	
+div.related-posts h4{margin:20px 0 25px}
+
+div.related-posts ul{font-size:1.1em;
+	padding-left:12px}
+	
+div.related-posts ul li{padding:4px 0}
+
+ul.list,ul.related-posts,ul.social{list-style-type:none;
+	margin:0;
+	padding:0}
+	
+ul.list{padding:1em 0}
+
+ul.list li{padding:4px}
+
+/* Social widgets */
+ul.social{font-size:1.6em;
+	padding-top:20px}
+	
+ul.social li{display:inline}
+
+ul.social a:hover{z-index:1;
+	-webkit-transform:translateY(-5px);
+	transform:translateY(-5px)}
+	
+ul.social a{display:inline-block;
+	width:36px;
+	height:36px;
+	border-radius:100%;
+	text-align:center;
+	font-size:.8em;
+	line-height:39px}
+	
+ul.social a.sc-linkedin{background-color:#581925}
+
+ul.social a.sc-twitter{background-color:#581925}
+
+ul.social a.sc-file-pdf-o{background-color:#eb212d}
+
+ul.social a.sc-github,ul.social a.sc-github-alt{
+	background-color:#581925}
+
+ul.social a.sc-envelope-o{background-color:#578ad6}
+
+
+	
+@media screen and (min-width:768px){
+
+    aside{width:25%;
+    	height:100%;
+    	position:fixed;
+    	top:0;
+    	left:0;
+    	overflow-y:auto}
+	
+    aside div{padding:36px 18px}
+
+    aside div nav ul li{padding:0!important;
+    	display:block}
+    	
+    aside div ul.social{padding-top:32px}
+
+    main{width:75%;
+    	height:100%;
+    	position:absolute;
+    	top:0;
+    	left:25%}
+    	
+    main article.single{min-height:80%}
+
+    main article ul.list li{padding:2px}
+
+    main article div table#tags{
+        width:90%;
+    }
+
+}
