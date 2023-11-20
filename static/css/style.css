@@ -149,7 +149,7 @@ main article blockquote{
 main article pre{
     padding: 18px;
 	font-size:.9em;
-	background-color:#f74242;
+	background-color:#581925;
 	color:#F8F8F2;
 	overflow-x:auto;
     border:0;
@@ -337,7 +337,8 @@ ul.social a.sc-envelope-o{background-color:#578ad6}
     	height:100%;
     	position:absolute;
     	top:0;
-    	left:25%}
+    	/* left:25% */
+	}
     	
     main article.single{min-height:80%}
 
