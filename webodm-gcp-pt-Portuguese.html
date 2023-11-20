@@ -19,16 +19,16 @@
 <link href="https://laizacavalcante.github.io/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 <link href="https://laizacavalcante.github.io/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
 <meta content="Laíza Cavalcante" name="author"/>
-<meta content="WebODM e Cloud Computing da Google" name="description"/>
+<meta content="Computação em nuvem e WebODM, como processar imagens de drone sem precisar de recurso computacional físico?" name="description"/>
 <meta content="Drones, WebODM, Cloud Computing" name="keywords"/>
 <meta content="Laíza Cavalcante" property="og:site_name">
 <meta content="Processamento de imagens de drone na Google" property="og:title"/>
-<meta content="WebODM e Cloud Computing da Google" property="og:description"/>
+<meta content="Computação em nuvem e WebODM, como processar imagens de drone sem precisar de recurso computacional físico?" property="og:description"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="./webodm-gcp-pt-Portuguese.html" property="og:url"/>
 <meta content="article" property="og:type"/>
-<meta content="2023-11-15 10:20:00-03:00" property="article:published_time"/>
-<meta content="2023-11-15 10:20:00-03:00" property="article:modified_time"/>
+<meta content="2023-11-20 10:20:00-03:00" property="article:published_time"/>
+<meta content="2023-11-20 10:20:00-03:00" property="article:modified_time"/>
 <meta content="./author/laiza-cavalcante.html" property="article:author"/>
 <meta content="Drones, Tutorial" property="article:section">
 <meta content="Drones" property="article:tag"/>
@@ -85,7 +85,7 @@
 <header>
 <h1 id="webodm-gcp-pt">Processamento de imagens de drone na Google</h1>
 <p>
-      Posted on qua 15 novembro 2023 in <a href="./category/drones-tutorial.html">Drones, Tutorial</a>
+      Posted on seg 20 novembro 2023 in <a href="./category/drones-tutorial.html">Drones, Tutorial</a>
 </p>
 </header>
 <div>
@@ -271,7 +271,9 @@ webapp<span class="w">      </span><span class="p">|</span><span class="w"> </sp
 <p><img alt="GCP Webodm start" src="../static/images/setupWebODM/gcp_webodm_start.png"/>
 <img alt="GCP Webodm start" src="../static/images/setupWebODM/gcp_webodm_page.png"/></p>
 <p>Espero que tenha dado tudo certo por ai! Lembre-se que enquanto você tiver processando imagens a sua máquina virtual deve estar <strong>ligada</strong>, quando você terminar de processar <strong>suspenda ou pare a máquina virtual</strong> pois assim você evita gastos desnecessários. Segundo a documentação do Google…</p>
-<p>| “<strong>Se você quiser manter a instância de <span class="caps">VM</span>, mas não quiser ser cobrado por ela quando não estiver em uso, suspenda a <span class="caps">VM</span>.</strong> Quando você suspende uma <span class="caps">VM</span>, o Google preserva a <span class="caps">VM</span> no projeto e move o conteúdo da memória da <span class="caps">VM</span> para o armazenamento. Enquanto a <span class="caps">VM</span> está suspensa, o Google cobra apenas pelo armazenamento usado para preservar a memória da <span class="caps">VM</span>. Os atributos, como endereços <span class="caps">IP</span> estáticos, permanecem em vigor para que as funções de rede funcionem conforme o esperado quando você retoma a <span class="caps">VM</span>. Após a retomada, o Google move a memória da <span class="caps">VM</span> do armazenamento de volta para a instância e começa a cobrar você pela instância de <span class="caps">VM</span> em execução.”</p>
+<blockquote>
+<p><span class="dquo">“</span><strong>Se você quiser manter a instância de <span class="caps">VM</span>, mas não quiser ser cobrado por ela quando não estiver em uso, suspenda a <span class="caps">VM</span>.</strong> Quando você suspende uma <span class="caps">VM</span>, o Google preserva a <span class="caps">VM</span> no projeto e move o conteúdo da memória da <span class="caps">VM</span> para o armazenamento. Enquanto a <span class="caps">VM</span> está suspensa, o Google cobra apenas pelo armazenamento usado para preservar a memória da <span class="caps">VM</span>. Os atributos, como endereços <span class="caps">IP</span> estáticos, permanecem em vigor para que as funções de rede funcionem conforme o esperado quando você retoma a <span class="caps">VM</span>. Após a retomada, o Google move a memória da <span class="caps">VM</span> do armazenamento de volta para a instância e começa a cobrar você pela instância de <span class="caps">VM</span> em execução.”</p>
+</blockquote>
 <p>Então se você quer manter o estado da sua máquina você pode suspender a atividade dela, mas se não quiser usar mais, opte por <strong>parar a <span class="caps">MV</span></strong>. Quando você <strong>para uma <span class="caps">MV</span></strong> o estado da memória dela não é preservado, então toda vez que você precisar retomar o seu processamento você precisará executar os seguintes comandos (via conexão <span class="caps">SSH</span>).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 1. Ir para a pasta do WebODM</span>
 <span class="nb">cd</span><span class="w"> </span>WebODM
