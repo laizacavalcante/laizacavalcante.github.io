@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="True" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="robots"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&amp;family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="./theme/stylesheet/style.min.css" rel="stylesheet" type="text/css"/>
+<link href="./theme/stylesheet/dark-theme.min.css" id="dark-theme-style" rel="stylesheet" type="text/css"/>
+<link href="./theme/pygments/monokai.min.css" id="pygments-dark-theme" rel="stylesheet" type="text/css"/>
+<link href="./theme/font-awesome/css/fontawesome.css" rel="stylesheet" type="text/css"/>
+<link href="./theme/font-awesome/css/brands.css" rel="stylesheet" type="text/css"/>
+<link href="./theme/font-awesome/css/solid.css" rel="stylesheet" type="text/css"/>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="https://laizacavalcante.github.io/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://laizacavalcante.github.io/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<meta content="Laíza Cavalcante" name="author"/>
+<meta content="WebODM e Cloud Computing da Google" name="description"/>
+<meta content="Drones, WebODM, Cloud Computing" name="keywords"/>
+<meta content="Laíza Cavalcante" property="og:site_name">
+<meta content="Processamento de imagens de drone na Google" property="og:title"/>
+<meta content="WebODM e Cloud Computing da Google" property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="./webodm-gcp-pt-Portuguese.html" property="og:url"/>
+<meta content="article" property="og:type"/>
+<meta content="2023-11-15 10:20:00-03:00" property="article:published_time"/>
+<meta content="2023-11-15 10:20:00-03:00" property="article:modified_time"/>
+<meta content="./author/laiza-cavalcante.html" property="article:author"/>
+<meta content="Drones, Tutorial" property="article:section">
+<meta content="Drones" property="article:tag"/>
+<meta content="WebODM" property="article:tag"/>
+<meta content="Cloud Computing" property="article:tag"/>
+<meta content="https://laizacavalcante.github.io/images/img_laiza2.png" property="og:image"/>
+<title>Laíza Cavalcante – Processamento de imagens de drone na Google</title>
+</meta></meta></head>
+<body class="dark-theme">
+<aside>
+<div>
+<a href="./">
+<img alt="Laíza Cavalcante" src="https://laizacavalcante.github.io/images/img_laiza2.png" title="Laíza Cavalcante"/>
+</a>
+<h1>
+<a href="./">Laíza Cavalcante</a>
+</h1>
+<p>Lost in spatial data</p>
+<nav>
+<ul class="list">
+<li>
+<a href="./pages/about-me.html#about-me" target="_self">
+                About me
+              </a>
+</li>
+<li>
+<a href="./pages/contact.html#contact" target="_self">
+                Contact
+              </a>
+</li>
+<li>
+<a href="./pages/resume.html#resume" target="_self">
+                Resume
+              </a>
+</li>
+</ul>
+</nav>
+<ul class="social">
+<li>
+<a class="sc-github" href="https://github.com/laizacavalcante" target="_blank">
+<i class="fa-brands fa-github"></i>
+</a>
+</li>
+<li>
+<a class="sc-linkedin" href="https://linkedin.com/in/laizacavalcante/" target="_blank">
+<i class="fa-brands fa-linkedin"></i>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+<main>
+<article class="single">
+<header>
+<h1 id="webodm-gcp-pt">Processamento de imagens de drone na Google</h1>
+<p>
+      Posted on qua 15 novembro 2023 in <a href="./category/drones-tutorial.html">Drones, Tutorial</a>
+</p>
+</header>
+<div>
+<h2>Contexto</h2>
+<p>Uma queixa muito comum que escuto é:</p>
+<blockquote>
+<p><span class="dquo">“</span>Como eu posso processar imagens de drone com um computador com uma configuração ruim?”</p>
+</blockquote>
+<p>Bem, se você também tem esse problema e não quer comprar um computador melhor, isso pode ser resolvido  utilizando computação em nuvem. Se você nunca ouviu falar disso, computacão em nuvem nada mais é do que serviços oferecidos por empresas de tecnologia, como Google, <span class="caps">AWS</span>, Azure, etc., que disponibilizam recursos de computação sob demanda. Ou seja, você pode utilizar um “computador/servidor” que existe em algum lugar do planeta direto da sua casa. Dessa forma, nós conseguimos instalar softwares e desenvolver aplicações utilizando recursos externos e pagando somente pelo custo da máquina.</p>
+<p>Já para processar imagens de drone, uma solução muito boa é o <strong><a href="https://www.opendronemap.org/webodm/">WebODM</a></strong>, um software gratuito para o processamento de imagens de drones, gerando ortomosaicos, nuvens de pontos, modelos de elevação e modelos 3D texturizados a partir de imagens aéreas. Existem outros softwares de processamento de imagens de drone, mas isso é uma discussão para outro post. </p>
+<h2>Requisitos mínimos</h2>
+<p>Para esse tutorial você precisará do seguinte:</p>
+<ul>
+<li>Uma email do gmail</li>
+<li>Um cartão de crédito (não se preocupe pois ao criar uma conta você ganhará 300 dólares)</li>
+<li>Criar uma conta na Google Cloud Platform (<span class="caps">GCP</span>). Caso não tenha, siga <a href="https://www.youtube.com/watch?v=nmWfH9ZvAHw">esse tutorial</a></li>
+<li>Conceitos básicos de linux (não se assuste com isso!)</li>
+<li>Acesso a internet</li>
+</ul>
+<h2>Tutorial de criação</h2>
+<p>Com a conta na <span class="caps">GCP</span> criada, você precisará criar um <strong>projeto</strong>. Isso é necessário pela forma de gerenciamento de recursos de uma organização. Se você quiser entender melhor como isso funciona, <a href="https://cloud.google.com/resource-manager/docs/creating-managing-folders?hl=pt-br">leia essa documentação</a>, embora isso não seja necessário para o tutorial. A página inicial do console da <span class="caps">GCP</span> é esta:</p>
+<p><img alt="GCP console page" src="../static/images/setupWebODM/gcp_console.png"/></p>
+<p>CLique em “Selecionar um Projeto”e uma janela aparecerá para você selecionar um projeto existente ou criar um novo. Clique em “<span class="caps">NOVO</span> <span class="caps">PROJETO</span>”.</p>
+<p><img alt="GCP create new project" src="../static/images/setupWebODM/gcp_new_project.png"/></p>
+<p>Nesta página será necessário definir o <strong>Nome do projeto</strong> e o <strong>Local</strong>. Se você não se lembra, ao criar sua conta, você preencheu/criou uma Organização/Local. No meu caso, eu deixei esse campo vazio e por isso aparece o termo “Sem organização”. Selecione uma pré-existente, ou caso queira, crie uma. O nome do meu projeto será “WebODM” e clique em <strong>Criar</strong>.</p>
+<p><img alt="GCP new project" src="../static/images/setupWebODM/gcp_new_project_name.png"/></p>
+<p>Agora, na opção <strong>Selecione um projeto</strong> aparecerá o projeto criado. Clique nele e a página do console da <span class="caps">GCP</span> deve ficar assim:</p>
+<p><img alt="GCP console page for project" src="../static/images/setupWebODM/gcp_webodm_project.png"/></p>
+<p>Agora clique no botão “Compute Engine”. A Google exibirá uma página informando que você precisa ativar o produto Compute Engine para conseguir utilizá-lo. Clique em “Ativar” e espere a página reabrir. O produto <a href="https://cloud.google.com/compute/?hl=pt_BR&amp;_gl=1*1t7s1ok*_ga*NDQ3MDYyOTE3LjE3MDAwNDQzMjE.*_ga_WH2QY8WWF5*MTcwMDA2MjU1MC40LjEuMTcwMDA2MjU1NC4wLjAuMA..&amp;_ga=2.58031791.-447062917.1700044321&amp;_gac=1.211928736.1700059036.EAIaIQobChMIz47JkI7GggMV7s3CBB1JNQkOEAAYASAAEgLrL_D_BwE">Compute Engine</a> disponibiliza a criação de máquinas para utilizarmos de forma remota. Nele é possível escolher o sistema operacional desejado, as configurações da máquina (memória, espaço no <span class="caps">HD</span> e afins). </p>
+<p><img alt="GCP activate compute engine" src="../static/images/setupWebODM/gcp_activate_compute_engine.png"/></p>
+<p>Após ativado, você será redirecionado para a página inicial do Compute Engine, local onde iremos criar a nossa máquina virtual. Clique no botão “Criar instância”.</p>
+<p><img alt="GCP VM" src="../static/images/setupWebODM/gcp_vm.png"/></p>
+<p>Agora precisaremos selecionar diversas opções para configurar a máquina, que serão detalhadas na tabela abaixo. A <a href="https://github.com/OpenDroneMap/WebODM#recommended-machine-specs">documentação do WebODM</a> sugere <em>uma configuração mínima</em> para o processamento de voos que é 100 <span class="caps">GB</span> de <span class="caps">HD</span> e 16 <span class="caps">GB</span> de <span class="caps">RAM</span>. Neste tutorial eu utilizarei isto, mas lembre-se que quanto mais imagens tiver o seu voo e maior a qualidade dos subprodutos gerados, sua máquina virtual deverá ser mais robusta. Um excelente guia para decidir a configuração da sua <span class="caps">VM</span> é o benchmark comparando o tempo de processamento, configuração da máquina para diferentes conjunto de voos, <a href="https://github.com/OpenDroneMap/odm-benchmarks/blob/master/data-parsed/by-dataset.txt">disponível aqui</a>. </p>
+<p>As configurações da nossa máquina virtual seguirão a descrição da tabela abaixo, as demais opções que não estão detalhadas abaixo não altere.</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nome</td>
+<td>mv-webodm</td>
+<td>O nome da nossa máquina virtual (<span class="caps">MV</span>)</td>
+</tr>
+<tr>
+<td>Região</td>
+<td>southamerica-east1 (São Paulo)</td>
+<td>A região onde a sua máquina será criada, poderia ser qualquer região do mundo, com diferenças de disponibilidade, tapidez na resposta (latência de rede) e preço. Para entender melhor as implicações disso, <a href="https://cloud.google.com/compute/docs/regions-zones?hl=pt-br">leia esse artigo</a></td>
+</tr>
+<tr>
+<td>Zona</td>
+<td>southamerica-east1-b</td>
+<td>Este parâmetro pode afetar a disponibilidade de recursos, como utilização de placa de vídeo, por exemplo. Para mais detalhes, <a href="https://cloud.google.com/compute/docs/regions-zones?hl=pt-br#identifying_a_region_or_zone">leia a documentação</a></td>
+</tr>
+<tr>
+<td>Configuração de máquina</td>
+<td>Opção <strong>uso geral</strong>, series “E2”</td>
+<td>Esta <span class="caps">MV</span> será apenas um teste, então não precisaremos de um desempenho elevado e por isso esta opção foi escolhida</td>
+</tr>
+<tr>
+<td>Tipo de máquina (PREDEFINIÇÃO), opção Padrão)</td>
+<td>e2-standard-4 (4 vCPU, 2 núcleos, 16 <span class="caps">GB</span> memória)</td>
+<td>A documentação sugere 16 <span class="caps">GB</span> de <span class="caps">RAM</span>, escolhi apenas 4 CPUs para não aumentar muito o custo de processamento</td>
+</tr>
+<tr>
+<td>Políticas de disponibilidade</td>
+<td>Padrão</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Disco de inicialização</td>
+<td>100 <span class="caps">GB</span></td>
+<td>Configuracão mínima exigida conforme documentação do WebODM, isso é necessário pois os subprodutos do processamento ocupam bastante espaço</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td>Permitir tráfegos <span class="caps">HTTP</span></td>
+<td>O próximo passo será a configuração de uma regra Firewall para conseguirmos acessar a aplicação e essa conexão são será encriptada (o que não é o ideal)</td>
+</tr>
+<tr>
+<td>Opções avançadas (Rede - Tags de rede)</td>
+<td>http-rede</td>
+<td>Essa tag será utilizada para criarmos uma política de acesso a <span class="caps">MV</span> na configuração do firewall</td>
+</tr>
+</tbody>
+</table>
+<p>Ou siga as imagens abaixo:
+<img alt="GCP VM PT1" src="../static/images/setupWebODM/gcp_vm_pt1.png"/>
+<img alt="GCP VM PT2" src="../static/images/setupWebODM/gcp_vm_pt2.png"/>
+<img alt="GCP VM PT3" src="../static/images/setupWebODM/gcp_vm_pt3.png"/>
+<img alt="GCP VM PT4" src="../static/images/setupWebODM/gcp_vm_pt4.png"/>
+<img alt="GCP VM PT5" src="../static/images/setupWebODM/gcp_vm_pt5.png"/></p>
+<p>Com a <span class="caps">MV</span> criada, vamos criar uma regra de firewall para que conseguimos acessá-la utilizando sua rede local de internet (seu <span class="caps">IP</span>). Na lupa, pesquise por Firewall e clique na primeira opção.</p>
+<p><img alt="GCP Firewall" src="../static/images/setupWebODM/Firewall.png"/></p>
+<p>Na página de regras de Firewall, clique em “Criar regra de Firewall”.</p>
+<p><img alt="GCP Firewall rule" src="../static/images/setupWebODM/Firewall_create_rull.png"/></p>
+<p>Nesta parte precisaremos preencher os campos listados na tabela abaixo, os demais não deverão ser alterados e após preenchê-los clique em “Criar regra”.</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nome</td>
+<td>webodm-http</td>
+<td>nome da regra de firewall a ser criada, serve apenas para identificação</td>
+</tr>
+<tr>
+<td>Tags de destino</td>
+<td>http-server</td>
+<td>tag da regra, serve para identificação interna da rede que poderá acessar</td>
+</tr>
+<tr>
+<td>Intervalos de IPv4 de origem</td>
+<td>0.0.0.0/0</td>
+<td>Aqui estamos permitindo o tráfego numa conexão local para a nossa <span class="caps">MV</span> criada. Para mais informações sobre o funcionamento das regras e permissões, por favor verifique <a href="https://cloud.google.com/firewall/docs/firewalls?hl=pt-br">a documentação</a></td>
+</tr>
+<tr>
+<td>Protocolos e portas</td>
+<td>Manter a opção “Portas e protocolos especificados”</td>
+<td>####</td>
+</tr>
+<tr>
+<td><span class="caps">TCP</span></td>
+<td>8000</td>
+<td>Aqui estamos estabelecendo uma comunicação por porta específica. Ao criarmos o WebODM, ele exibirá a interface dele pelo navegador utilizando a porta 8000 para a transmissão de conteúdo. Por isso estamos autorizando a comunicação apenas nesta porta. Se você está com dúvida de como funcina o <span class="caps">IP</span> e o <span class="caps">TCP</span>, <a href="https://joaomarcuraa.medium.com/o-protocolo-tcp-ip-1dc2cdb88b07">leia este artigo</a></td>
+</tr>
+</tbody>
+</table>
+<p>Ou siga os parâmetros da imagem abaixo:
+<img alt="GCP Firewall parameters" src="../static/images/setupWebODM/gcp_firewall_rules_pt1.png"/>
+<img alt="GCP Firewall parameters 2" src="../static/images/setupWebODM/gcp_firewall_rules_pt2.png"/></p>
+<p>Bem, com a máquina virtual criada e rede de firewall, agora podemos instalar o WebODM dentro da nossa máquina. Para isso, volte na parte “Compute Engine” e clique no botão <span class="caps">SSH</span> na opção <strong>Conectar</strong> (conforme imagem abaixo em vermelho). Uma nova janela se abrirá (caso não ocorro, verifique se o seu navegador permite pop-ups nas configurações). Nesta janela aparecerá uma mini janela perguntando se você “Permite que o <span class="caps">SSH</span> no navegador se conecte a  VMs”. Clique em Autorizar e logo em seguida a nova janela ficará preta e semelhante a um console terminal.</p>
+<p><img alt="GCP SSH authorization" src="../static/images/setupWebODM/gcp_ssh_authorization.png"/></p>
+<p>Agora iremos instalar as aplicações necessárias. Copie e cole no terminal os comandos abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. baixar atualizações da máquina</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+
+<span class="c1"># 2. instalar atualizações da máquina</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+
+<span class="c1"># 3. Instalar docker-compose (Clique em confirmar: Y)</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-compose
+
+<span class="c1"># 4. Instalar o pip (gerenciador de bibliotecas em python), clique em confirmar: Y</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pip
+
+<span class="c1"># 5. Clone o repositório do github do WebODM</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OpenDroneMap/WebODM<span class="w"> </span>--config<span class="w"> </span>core.autocrlf<span class="o">=</span>input<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># 6. Mude para a pasta WebODM que foi criada pela etapa 5</span>
+<span class="nb">cd</span><span class="w"> </span>WebODM
+
+<span class="c1"># 7. Execute a aplicação pelo comando abaixo</span>
+sudo<span class="w"> </span>./webodm.sh<span class="w"> </span>start
+</code></pre></div>
+<p>Verifique se a os comandos acima estão gerando resultados semelhantes aos prints abaixo. Este processo não deve ser semelhante ao meu, pois mais pacotes precisarão ser atualizados dependendo da época que você execute <code>sudo apt-get update</code> por exemplo. Ou seja, utilize apenas como um guia para saber se a execução está ocorrendo.</p>
+<p><img alt="GCP terminal" src="../static/images/setupWebODM/gcp_terminal_vm.png"/></p>
+<p><img alt="GCP terminal 2" src="../static/images/setupWebODM/gcp_terminal_vm2.png"/></p>
+<p><img alt="GCP terminal 3" src="../static/images/setupWebODM/gcp_terminal_vm3.png"/></p>
+<p>A inicialização do WebODM demora um pouco, então para saber que ele está pronto, no final ele deve informar que a aplicação está pronta para ser executada:</p>
+<div class="highlight"><pre><span></span><code>...
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="o">==========================</span>
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span>
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span>If<span class="w"> </span>there<span class="w"> </span>are<span class="w"> </span>no<span class="w"> </span>errors,<span class="w"> </span>WebODM<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>up<span class="w"> </span>and<span class="w"> </span>running!
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span>
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span>Open<span class="w"> </span>a<span class="w"> </span>web<span class="w"> </span>browser<span class="w"> </span>and<span class="w"> </span>navigate<span class="w"> </span>to<span class="w"> </span>http://localhost:8000
+webapp<span class="w">      </span><span class="p">|</span><span class="w"> </span>
+</code></pre></div>
+<p>Bem, agora volte a página principal da sua máquina virtual e copie o <span class="caps">IP</span> público dela. Cole no seu navegador e adicione a porta <span class="caps">TCP</span> que abrimos a 8000. O seu ficará algo semelhante a isso:</p>
+<blockquote>
+<p>99.99.999.999/8000 (endereço <span class="caps">IP</span>/porta <span class="caps">TCP</span>)</p>
+</blockquote>
+<p>Se tudo deu certo, o seu navegador deverá exibir a página inicial do WebODM, onde você poderá criar um usuário e senha para acessar a aplicação.</p>
+<p><img alt="GCP Webodm start" src="../static/images/setupWebODM/gcp_webodm_start.png"/>
+<img alt="GCP Webodm start" src="../static/images/setupWebODM/gcp_webodm_page.png"/></p>
+<p>Espero que tenha dado tudo certo por ai! Lembre-se que enquanto você tiver processando imagens a sua máquina virtual deve estar <strong>ligada</strong>, quando você terminar de processar <strong>suspenda ou pare a máquina virtual</strong> pois assim você evita gastos desnecessários. Segundo a documentação do Google…</p>
+<p>| “<strong>Se você quiser manter a instância de <span class="caps">VM</span>, mas não quiser ser cobrado por ela quando não estiver em uso, suspenda a <span class="caps">VM</span>.</strong> Quando você suspende uma <span class="caps">VM</span>, o Google preserva a <span class="caps">VM</span> no projeto e move o conteúdo da memória da <span class="caps">VM</span> para o armazenamento. Enquanto a <span class="caps">VM</span> está suspensa, o Google cobra apenas pelo armazenamento usado para preservar a memória da <span class="caps">VM</span>. Os atributos, como endereços <span class="caps">IP</span> estáticos, permanecem em vigor para que as funções de rede funcionem conforme o esperado quando você retoma a <span class="caps">VM</span>. Após a retomada, o Google move a memória da <span class="caps">VM</span> do armazenamento de volta para a instância e começa a cobrar você pela instância de <span class="caps">VM</span> em execução.”</p>
+<p>Então se você quer manter o estado da sua máquina você pode suspender a atividade dela, mas se não quiser usar mais, opte por <strong>parar a <span class="caps">MV</span></strong>. Quando você <strong>para uma <span class="caps">MV</span></strong> o estado da memória dela não é preservado, então toda vez que você precisar retomar o seu processamento você precisará executar os seguintes comandos (via conexão <span class="caps">SSH</span>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Ir para a pasta do WebODM</span>
+<span class="nb">cd</span><span class="w"> </span>WebODM
+
+<span class="c1"># 2. Iniciar a aplicação</span>
+sudo<span class="w"> </span>./webodm.sh<span class="w"> </span>start
+</code></pre></div>
+<h2>Disclaimer</h2>
+<p>Esse tutorial foi baseado na documentação do WebODM na seção <a href="https://github.com/OpenDroneMap/WebODM#run-it-on-the-cloud-google-compute-amazon-aws">Run it on the cloud (Google Compute, Amazon <span class="caps">AWS</span>)</a></p>
+</div>
+<div class="tag-cloud">
+<p>
+<a href="./tag/drones.html">Drones</a>
+<a href="./tag/webodm.html">WebODM</a>
+<a href="./tag/cloud-computing.html">Cloud Computing</a>
+</p>
+</div>
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'iadoreit';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+<footer>
+<p>© Laíza Cavalcante - 2023 </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer> </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Laíza Cavalcante ",
+  "url" : ".",
+  "image": "https://laizacavalcante.github.io/images/img_laiza2.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

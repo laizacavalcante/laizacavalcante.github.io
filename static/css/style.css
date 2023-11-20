@@ -1,7 +1,9 @@
-body,html{width:100%;
+body,html{
+	width:100%;
 	height:100%}
 	
-h1,h2,h3,h4,h5,h6{font-weight:300;
+h1,h2,h3,h4,h5,h6{
+	font-weight:300;
 	line-height:1.1;
 	font-family:"Source Sans Pro","Trebuchet MS",sans-serif}
 
@@ -34,14 +36,18 @@ h6{font-size:1.1em}
 /* Body specs */
 body{margin:0;
 	padding:0;
-	background-color:#242121;
+	background-color:#242424;
+	/* background-color:#242121; */
 	color:#ffffff;
 	font-family:"Source Sans Pro","Trebuchet MS",sans-serif;
 	font-size:1.05em;
 	line-height:1.2em}
 
 /* Sections color  */
-a{color:#fff;
+a{
+	color: #743641;
+	/* color:rgb(233, 233, 233); */
+	/* color:#242121; */
 	text-decoration:none}
 
 a:hover{color:rgb(180, 172, 176)}
@@ -56,7 +62,8 @@ hr{color:#fff;
 img{max-width:100%}
 
 /* Specs Sidebar */
-aside{background-color:#242121;
+aside{
+	background-color:#242424;
 	text-align:center}
 	
 aside,aside a{color:#fff}
@@ -142,7 +149,7 @@ main article blockquote{
 main article pre{
     padding: 18px;
 	font-size:.9em;
-	background-color:#2c2c2c;
+	background-color:#f74242;
 	color:#F8F8F2;
 	overflow-x:auto;
     border:0;
@@ -151,7 +158,8 @@ main article pre{
 }
 
 .highlight{
-    background-color: #1a1818;
+	background-color:#242424;
+    /* background-color: #1a1818; */
     /* border-radius: 5px; */
     padding: 0;
     line-height: 133%;
@@ -173,7 +181,8 @@ main article img{
 }	
 
 main footer{padding-top:4px;
-	border-top:1px solid #242121
+	border-top:1px solid #242424
+	/* border-top:1px solid #242121 */
 }
 	
 main footer p{margin:2px;
@@ -182,7 +191,8 @@ main footer p{margin:2px;
 	color:#999;
 	font-size:11px}
 	
-.tag-cloud a{background-color:#3aa500; 
+.tag-cloud a{
+	background-color:#581925; 
 	padding:.2em .6em;
 	font-size:.74em;
 	line-height:1;
@@ -192,7 +202,9 @@ main footer p{margin:2px;
 	vertical-align:baseline;
 	border-radius:.25em}
 	
-.tag-cloud a:hover{background-color:#4cdb00}
+.tag-cloud a:hover{
+	background-color:#d6acc0
+}
 
 main article div table#tags{
 	margin-top:1em;
@@ -219,7 +231,9 @@ main article td.tagbarcol{
 }
 
 main article div.tagbar{
-    background-color:#55272f;
+    background-color:#242424;
+    /* background-color:#242121; */
+    /* background-color:#55272f; */
     color:#fff;
     height: 24px;
     line-height: 26px;
